@@ -115,6 +115,12 @@
   .nav-links a:hover {
     color: var(--ink);
   }
+  .nav-links a.nav-doc {
+    color: var(--lilac);
+  }
+  .nav-links a.nav-doc:hover {
+    color: var(--signal);
+  }
   @media (max-width: 820px) {
     .nav-links {
       display: none;
@@ -692,6 +698,94 @@
     }
   }
   /* =========================================================
+     DOCUMENTATION
+  ========================================================= */
+  .doc-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 32px 34px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: linear-gradient(
+      100deg,
+      var(--panel),
+      var(--panel-2)
+    );
+  }
+  .doc-meta .tag {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 10px;
+  }
+  .doc-meta h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .doc-meta p {
+    color: var(--mist);
+    font-size: 0.92rem;
+    max-width: 560px;
+  }
+  .doc-specs {
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+  .doc-specs span + span::before {
+    content: "·";
+    margin: 0 9px;
+    color: var(--nebula);
+  }
+  .doc-contents {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    list-style: none;
+  }
+  .doc-contents li {
+    padding: 13px 14px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--panel);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--mist);
+  }
+  .doc-contents li strong {
+    display: block;
+    color: var(--lilac);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  @media (max-width: 820px) {
+    .doc-panel {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 26px;
+    }
+    .doc-contents {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 500px) {
+    .doc-contents {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* =========================================================
      SECURITY
   ========================================================= */
   .security-list {
@@ -777,6 +871,14 @@
   <li><a href="#proof">Performance</a></li>
   <li><a href="#edge">Edge</a></li>
   <li><a href="#platform">Platform</a></li>
+  <li>
+    <a class="nav-doc"
+       href="QNyxV3_0_2_User_Manual.pdf"
+       target="_blank"
+       rel="noopener">
+      Manual
+    </a>
+  </li>
   <li><a href="#contact">Contact</a></li>
 </ul>
   </div>
@@ -804,6 +906,12 @@
     <div class="cta-row">
       <a class="btn btn-primary" href="#proof">
         See the Numbers
+      </a>
+      <a class="btn btn-ghost"
+         href="QNyxV3_0_2_User_Manual.pdf"
+         target="_blank"
+         rel="noopener">
+        Operator's Manual (PDF)
       </a>
       <a class="btn btn-ghost" href="mailto:info@xaocindustries.com">
         Contact Xaoc
@@ -933,6 +1041,12 @@
       QNyx provides an encrypted transport layer between endpoints while
       keeping the implementation small enough to run on commodity
       Linux edge hardware.
+    </p>
+    <p>
+      Deployment, command syntax, firewall requirements, and log-based
+      troubleshooting are documented in the
+      <a href="QNyxV3_0_2_User_Manual.pdf" target="_blank" rel="noopener">
+        QNyx 3.0.2 Operator's Manual</a>.
     </p>
   </div>
   <ul class="feature-list">
@@ -1200,6 +1314,65 @@
   </div>
 </section>
 <!-- =========================================================
+     DOCUMENTATION
+========================================================= -->
+<section id="docs">
+  <div class="wrap">
+<p class="eyebrow">Documentation</p>
+<h2>
+  Everything an operator needs, in one document.
+</h2>
+<p class="section-intro">
+  The <strong>QNyx 3.0.2 Operator's Manual</strong> is the operational
+  guide for the current production release: installation, identity
+  enrollment, command syntax, firewall requirements, and a complete
+  log message reference. Written for network technicians comfortable
+  with the Linux CLI.
+</p>
+<div class="doc-panel">
+  <div class="doc-meta">
+    <div class="tag">Current Release</div>
+    <h3>QNyx V3.0.2 Operator's Manual</h3>
+    <p>
+      Day-to-day deployment, configuration, and maintenance of QNyx
+      software endpoints. Not a cryptographic reference or protocol
+      specification.
+    </p>
+    <div class="doc-specs">
+      <span>PDF</span>
+      <span>QNyx v3.0.2</span>
+      <span>August 2026</span>
+      <span>Linux</span>
+    </div>
+  </div>
+  <a class="btn btn-primary"
+     href="QNyxV3_0_2_User_Manual.pdf"
+     target="_blank"
+     rel="noopener">
+    Download Manual
+  </a>
+</div>
+<ul class="doc-contents">
+  <li>
+    <strong>Installation</strong>
+    Requirements, identity generation, key enrollment
+  </li>
+  <li>
+    <strong>Command Reference</strong>
+    Server, client, and keygen flags with defaults
+  </li>
+  <li>
+    <strong>Network Requirements</strong>
+    TCP KEX and UDP data channel, NAT and MTU notes
+  </li>
+  <li>
+    <strong>Log Reference</strong>
+    Every message, its severity, and the action to take
+  </li>
+</ul>
+  </div>
+</section>
+<!-- =========================================================
      SECURITY
 ========================================================= -->
 <section>
@@ -1279,6 +1452,12 @@
      href="mailto:info@xaocindustries.com?subject=QNyx%20Pilot%20Request">
     Request a Pilot
   </a>
+  <a class="btn btn-ghost"
+     href="QNyxV3_0_2_User_Manual.pdf"
+     target="_blank"
+     rel="noopener">
+    Operator's Manual
+  </a>
 </div>
   </div>
 </section>
@@ -1289,6 +1468,11 @@
   <div class="wrap footer-inner">
 <span>
   © 2026 Xaoc Industries Inc. · Canada
+</span>
+<span>
+  <a href="QNyxV3_0_2_User_Manual.pdf" target="_blank" rel="noopener">
+    QNyx 3.0.2 Operator's Manual (PDF)
+  </a>
 </span>
 <span>
   QNyx 3.0.2
