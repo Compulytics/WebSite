@@ -1436,7 +1436,7 @@
       <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img"
            aria-labelledby="healTitle healDesc">
         <title id="healTitle">QNyx self-healing link recovery timeline</title>
-        <desc id="healDesc">When a link dies, QNyx detects the missed heartbeat at 45 seconds, re-runs the ML-KEM-1024 key exchange, and restores the tunnel on the same addresses in under 60 seconds with no operator action.</desc>
+        <desc id="healDesc">When a link dies, QNyx detects the missed heartbeat at 15 seconds, re-runs the ML-KEM-1024 key exchange, and restores the tunnel on the same addresses in under 60 seconds with no operator action.</desc>
 
         <defs>
           <pattern id="downHatch" width="8" height="8" patternUnits="userSpaceOnUse"
@@ -1517,7 +1517,7 @@
       </svg>
       <figcaption>
         <strong>Recovery is a protocol behaviour, not a runbook.</strong>
-        A missed heartbeat marks the peer dead at 45 seconds; the node
+        A missed heartbeat marks the peer dead at 15 seconds; the node
         immediately re-runs the post-quantum key exchange and brings the tunnel
         back on the same addresses — well inside a minute, with nothing for an
         operator to restart.
@@ -2395,7 +2395,7 @@
         <summary>How fast does QNyx recover from a dropped link?</summary>
         <div class="faq-answer">
           <strong>Under 60 seconds.</strong> A missed heartbeat marks the peer
-          dead at 45 seconds, and the node immediately re-runs the ML-KEM-1024
+          dead at 15 seconds, and the node immediately re-runs the ML-KEM-1024
           key exchange and restores the tunnel on the same addresses. No
           operator action, no watchdog script, no monitoring system in the loop.
         </div>
